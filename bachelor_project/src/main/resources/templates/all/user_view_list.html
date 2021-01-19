@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>home direction</title>
+
+ <th:block th:include="all/_header_admin"></th:block>
+
+</head>  
+<body>
+<div id="wrap">  
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Admin System</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="all/_menu_admin"></th:block>
+</div>
+   <br><br>   
+<div id="content">   
+ <div class="alert alert-close alert-success" th:if="${successFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove">      <i class="fas fa-times"></i></a>
+                        <div class="bg-green alert-icon">
+                            <i class="glyph-icon icon-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${successFlash}"></h4>
+                        </div>
+               </div>
+                <div class="alert alert-close alert-danger" th:if="${errorFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove">      <i class="fas fa-times"></i></a>
+                        <div class="bg-red alert-icon">
+                            <i class="glyph-icon icon-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${errorFlash}"></h4>
+                        </div>
+               </div>
+    <table class="table" id="myTable" >
+	 							<thead>
+				                <tr>
+				                    <th>ID</th>
+				                    <th>UserName</th>
+				                    <th>Role</th>
+				                    <!--th></th--> 
+				                </tr>
+				                </thead>  
+				                <tbody> 
+				                <tr th:each="row : ${list}">
+				                    <td th:text="${row.id}"></td>
+				                    <td th:text="${row.username}"></td>  
+				                    <td>
+				                    <span th:each="r : ${row.roles}" th:text="${r.name}"></span>
+				                    </td>
+				                    <!--td>  
+				                       
+				                     	<a th:href="@{client_view(id=${row.id})}" class="btn eBtn" id="eBtn">edit</a> 
+				                    </td--> 
+				                </tr>
+				                </tbody>
+				                
+				            </table> 
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

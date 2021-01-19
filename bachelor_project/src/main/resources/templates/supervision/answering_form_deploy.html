@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>deploy answering</title>
+
+<th:block th:include="supervision/_header_supervision"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Supervision Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="supervision/_menu_supervision"></th:block>
+</div>
+
+
+   <br><br>   
+<div id="content">
+   
+    <div class="form-style-2">
+        <div class="form-style-2-heading">answering deployment (just for qauli. studies)</div>
+        <form th:action="@{/answeringDeploy/save}" method="post">
+        <label for="field1"><span>answering´s name <span class="required">*</span></span>
+        <select name="answering" class="select-field">
+                <option th:each="row : ${answering}" th:value="${row.id}" th:text="${row.firstName+' '+row.lastName}"></option>
+                </select> 
+        </label>
+        <label for="field2"><span>ID Study <span class="required">*</span></span>
+        <select name="study" class="select-field">
+                <option  th:each="row : ${studies}" th:value="${row.id}" th:text="${row.studyId+' - '+row.studyName}"></option>
+        </select>
+        </label>
+        <label for="field1"><span>date of interview<span class="required">*</span></span><input type="date" class="input-field" name="interview_date" required  /></label>
+        <label for="field5"><span>about the product<span class="required">*</span></span>
+            <select name="about_product" class="select-field">
+                <option value="very bad">very bad</option>
+                <option value="bad">bad</option>
+                <option value="pretty good">pretty good</option>
+                <option value="good">good</option>
+                <option value="veru good">very good</option>
+                </select></label>
+       
+<label for="field14"><span>reasons <span class="required">*</span></span><textarea name="reasons" class="textarea-field" required maxlength="50"></textarea></label>
+       
+        
+        <label><span> </span><input type="submit" value="Submit" /></label>
+        
+<!--            <label for="field5"><span>Message <span class="required">*</span></span><textarea name="field5" class="textarea-field"></textarea></label>
+-->
+        </form>
+        </div>
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

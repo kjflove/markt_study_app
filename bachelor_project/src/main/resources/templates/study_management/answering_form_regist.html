@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>answering registration </title>
+ <th:block th:include="/study_management/_header_study_management"></th:block>
+ <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+ 
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Studies management Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="/study_management/_menu_management"></th:block>
+</div>
+   <br><br>   
+<div id="content">   
+   <div class="alert alert-close alert-success" th:if="${successFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove"><i class="fas fa-times"></i></a>
+                        <div class="bg-green alert-icon">
+                    <i class="fas fa-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${successFlash}"></h4>
+                        </div>
+       </div>
+       <div class="alert alert-close alert-danger" th:if="${errorFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove"><i class="fas fa-times"></i></a>
+                        <div class="bg-red alert-icon">
+                    <i class="fas fa-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${errorFlash}"></h4>
+                        </div>
+               </div>
+        <div class="form-style-2">
+            <div class="form-style-2-heading">answering registration</div>
+            <form th:action="@{/answering/save}"  th:method="post">
+            <label for="field1"><span>First name <span class="required">*</span></span><input type="text" class="input-field" name="firstName" maxlength="40" required /></label>
+            <label for="field1"><span>Last name <span class="required">*</span></span><input type="text" class="input-field" name="lastName" maxlength="40"  required/></label>
+            <label for="field1"><span>Date of birth <span class="required">*</span></span><input type="date" class="input-field" name="birthdate" required/></label>
+            <label for="field4"><span>Gender</span><select name="gendre" class="select-field">
+                <option>Male</option>
+                <option>Female</option>
+                </select></label>
+            <label for="field2"><span>Address<span class="required">*</span></span><input type="text" class="input-field" name="address"  required/></label>
+            <label for="field2"><span>Email <span class="required">*</span></span><input type="email" class="input-field" name="email"  required/></label>
+            <label for="field2"><span>Telephone number<span class="required">*</span></span><input type="tel" class="input-field" name="tel"  required/></label>
+            <label for="field2"><span>Profession<span class="required">*</span></span><input type="text" class="input-field" name="profession" maxlength="30"   required/></label>
+
+            <label for="field4"><span>Social class</span><select name="social_class" class="select-field">
+                    <option value="A"> A</option>
+                    <option value="B"> B</option>
+                    <option value="AB">AB</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                    <option value="D"> D</option>
+                    <option> E</option>
+                </select></label>
+  <label for="field5"><span>Observaton <span class="required">*</span></span><textarea name="observation" class="textarea-field" required></textarea></label>
+           
+            
+            <label><span> </span><input type="submit" value="Submit" /></label>
+            
+<!--            <label for="field5"><span>Message <span class="required">*</span></span><textarea name="field5" class="textarea-field"></textarea></label>
+-->
+            </form>
+            </div>
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

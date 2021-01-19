@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>report upload</title>
+ <th:block th:include="study_management/_header_study_management"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Studies management Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+  
+<div id="menu" >
+ <th:block th:include="study_management/_menu_management"></th:block>
+</div>
+   <br><br>   
+<div id="content">   
+      <div class="alert alert-close alert-success" th:if="${successFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove">      <i class="fas fa-times"></i></a>
+                        <div class="bg-green alert-icon">
+                            <i class="glyph-icon icon-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${successFlash}"></h4>
+                        </div>
+        </div>
+         <div class="alert alert-close alert-danger" th:if="${errorFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove"><i class="fas fa-times"></i></a>
+                        <div class="bg-red alert-icon">
+                    <i class="fas fa-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${errorFlash}"></h4>
+                        </div>
+               </div>
+         
+    <div class="form-style-2 col-md-12">   
+        <div class="form-style-2-heading">Upload studies Reports</div>
+        <form action="../reportupload/save" method="post" enctype="multipart/form-data" onsubmit="return Validate(this);">
+        <label for="field1"><span>ID Study<span class="required">*</span></span> 
+			<select name="study" class="select-field">
+            <option th:each="row : ${liste}" th:value="${row.id}" th:text="${row.studyName+' - '+row.studyId}"></option>
+            </select>
+            <!--input type="text" class="input-field" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /-->
+		</label> 
+        <label for="field1"><span>Responsible for Study <span class="required">*</span></span><input type="text" class="input-field" name="responsible" value="" required/></label>
+        <label for="field1"><span>Report�s name <span class="required">*</span></span><input type="text" class="input-field" name="report_name" value="" required/></label>
+        <label for="field4"><span>Type of report</span><select name="report_type" class="select-field">
+            <option value="data process">Data process</option>
+            <option value="resume">resume</option>
+            <option value="observation">observation</option>
+            <option value="critical">critical</option>
+            </select></label>
+            <label for="field1"><span>joint file<span class="required">*</span></span>
+            
+            <script type="text/javascript"> 
+            var _validFileExtensions = [".docx", ".pdf", ".odt", ".xls", ".zip"];    
+            function Validate(oForm) {
+                var arrInputs = oForm.getElementsByTagName("input");
+                for (var i = 0; i < arrInputs.length; i++) {
+                    var oInput = arrInputs[i];
+                    if (oInput.type == "file") {
+                        var sFileName = oInput.value;
+                        if (sFileName.length > 0) {
+                            var blnValid = false;
+                            for (var j = 0; j < _validFileExtensions.length; j++) {
+                                var sCurExtension = _validFileExtensions[j];
+                                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                    blnValid = true;
+                                    break;
+                                }
+                            }
+                            
+                            if (!blnValid) {
+                               // alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                               $('#spnmsg').text("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", ")).show(); 
+                               return false;
+                            }
+                            else { $('#spnmsg').text('').hide();}
+                        }
+                    }
+                }
+              
+                return true;
+            }
+            </script>
+            <input  type="file" class="input-field" name="joint_file"  required/></label>
+           <span id="spnmsg" style="color:red;"></span><br />
+
+       
+        
+        <label><span> </span><input type="submit" value="Submit" /></label>
+        
+
+        </form>
+        
+    
+       
+        </div>
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

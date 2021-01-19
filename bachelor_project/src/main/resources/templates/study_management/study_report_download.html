@@ -1,0 +1,108 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>download reports</title>
+ <th:block th:include="study_management/_header_study_management"></th:block>
+ <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">  
+<table>   
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Studies management Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="study_management/_menu_management"></th:block>
+</div>
+   <br><br>   
+<div id="content">  
+ <div class="alert alert-close alert-danger" th:if="${errorFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove"><i class="fas fa-times"></i></a>
+                        <div class="bg-red alert-icon">
+                    <i class="fas fa-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${errorFlash}"></h4>
+                        </div>
+               </div>
+               	 <div class="alert alert-close alert-success" th:if="${successFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove">      <i class="fas fa-times"></i></a>
+                        <div class="bg-green alert-icon">
+                            <i class="glyph-icon icon-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${successFlash}"></h4>
+                        </div>
+               </div> 
+    <h2>download studies reports</h2><br />
+    <div class="topnav">
+        
+        
+        <a href="#">Enter the ID Study . </a>
+        <form method="get" th:action="@{/management/study_report_download}" >
+        <input class="text-search" th:value="${search}" name="search" type="text" placeholder="ID Study.." maxlength="8"/>
+        
+        <input class="search-icon" type="submit" value="">
+        </form>
+      </div> 
+      
+      <table class="table" id="myTable" >
+	 							<thead>
+				                <tr>
+				                  
+				                    <th>Name</th>
+				                    <th>Typ</th>  
+				                    <th>Responsible</th>
+				                    <th>Study ID</th>
+				                    <th>Study Name</th>
+				                    <th>File</th> 
+				                </tr>
+				                </thead>  
+				                <tbody>
+				                <tr th:each="row : ${list}">
+				                    <td th:text="${row.name}"></td>
+				                    <td th:text="${row.typ}"></td>
+				                    <td th:text="${row.responsible}"></td>
+				                     <td th:text="${row.studyId.studyId}"></td>
+				                    <td th:text="${row.studyId.studyName}"></td>
+				                    <td>  
+				                       
+				                     	<a th:href="@{${'/download/'+row.file}}"  class="btn eBtn" id="eBtn">download</a> 
+				                    </td> 
+				                </tr>
+				                </tbody>
+				                
+				            </table>   
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable({
+    	 searching:false,
+    	 bInfo : false,
+    	 lengthChange:false
+    });
+} );
+</script>
+</body>
+</html>

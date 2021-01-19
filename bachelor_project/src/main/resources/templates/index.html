@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>login</title>
+
+<th:block th:include="/_header_index"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a></h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></tr></table>
+</div></div>
+  <!-- menu -->
+<div id="menu">
+
+</div>
+   <br><br>   
+<div id="content">   
+<div class="login_area">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="" id="icon" alt="Account Login" />
+          </div>
+             
+          <!-- Login Form -->
+          <form method="POST"  th:action="@{/login}">
+            <div th:if="${param.error}" class="alert alert-error">    
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success"> 
+                    You have been logged out.
+            </div>
+            <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+          </form>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+          </div>
+      
+        </div>
+      </div>
+
+</div>
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

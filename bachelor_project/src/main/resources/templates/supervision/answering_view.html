@@ -1,0 +1,135 @@
+<!DOCTYPE html >
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>home supervision</title>
+<th:block th:include="supervision/_header_supervision"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Supervision Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="supervision/_menu_supervision"></th:block>
+</div>
+<!-- <div id="menu">
+    <ul id="menu-demo2">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">QUESTIONER</a>
+            <ul>
+                <li><a href="#">deploy</a></li>
+                <li><a href="#">payslip</a></li>
+                <li><a href="#">preview </a></li>
+                <li><a href="#">list all </a></li>
+            </ul>
+        </li>
+        <li><a href="#">STUDY</a>
+            <ul>
+                <li><a href="#">preview</a></li>
+                <li><a href="#">list all </a></li>
+                
+            </ul>
+        </li>
+        <li><a href="#">ANSWERING</a>
+            <ul>
+                <li><a href="#">deploy </a></li>
+                <li><a href="#">preview </a></li>
+                <li><a href="#">list all </a></li>
+            </ul>
+        </li>
+        <li><a href="#">OVERWIEW</a>
+            <ul>
+                <li><a href="#">questioner</a></li>
+                <li><a href="#">project</a></li>
+                <li><a href="#">answering</a></li>
+                
+            </ul>
+        </li>
+    </ul>
+</div> -->
+   <br><br>   
+<div id="content" col="col-md-12">
+<div class="alert alert-close alert-success" th:if="${successFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove"><i class="fas fa-times"></i></a>
+                        <div class="bg-green alert-icon">
+                    <i class="fas fa-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${successFlash}"></h4>
+                        </div>
+       </div>
+       <div class="alert alert-close alert-danger" th:if="${errorFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove"><i class="fas fa-times"></i></a>
+                        <div class="bg-red alert-icon">
+                    <i class="fas fa-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${errorFlash}"></h4>
+                        </div>
+               </div> 
+<div class="form-style-2 col-md-12"> 
+        
+      <div class="row"> 
+       <div class="col-md-6">   
+    <div class="form-style-2-heading">Answering View</div>
+     <div class="form-style-2">
+            <label for="field1"><span>ID </span><input type="text" class="input-field"  th:value="${data.id}" disabled /></label>
+            <label for="field1"><span>First name </span><input type="text" class="input-field"  th:value="${data.firstName}" disabled /></label>
+            <label for="field1"><span>Last name </span><input type="text" class="input-field" th:value="${data.lastName}"  disabled/></label>
+            <label for="field1"><span>Date of birth </span><input type="date" class="input-field" th:value="${#dates.format(data.birthdate, 'dd/MM/yyyy')}" disabled/></label>
+            <label for="field4"><span>Gender</span><input type="text" class="input-field" th:value="${data.gendre}" disabled/></label>
+            <label for="field2"><span>Address</span><input type="text" class="input-field" th:value="${data.address}"  disabled/></label>
+            <label for="field2"><span>Email </span><input type="email" class="input-field" th:value="${data.email}"  disabled/></label>
+            <label for="field2"><span>Telephone number</span><input type="tel" class="input-field" th:value="${data.tel}" disabled/></label>
+            <label for="field2"><span>Profession</span><input type="text" class="input-field" th:value="${data.profession}"  disabled/></label>
+
+            <label for="field4"><span>Social class</span>
+            <input type="text" class="input-field" th:value="${data.social_class}" disabled/>
+            </label>
+            <label for="field5"><span>Observaton </span><textarea name="observation" class="textarea-field" th:value="${data.observation}" disabled></textarea></label>
+           
+      
+           
+            </div>
+    
+	  </div>
+	  <div class="col-md-6">    
+        <label for="field1"><span>Study Number's</span><input type="text" class="input-field" name="name" th:value="${studiesSize}" disabled /></label>        
+       
+       </div>
+	    </div>
+	      </div>
+     <!--div class="topnav">
+        
+        
+        <a href="#">Enter the name . </a>
+        <form method="POST" action="#" >
+        <input class="text-search" type="text" placeholder="name of answering.."/>
+        
+        <input class="search-icon" type="submit" value="">
+        </form>
+      </div--> 
+   
+</div>
+
+
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

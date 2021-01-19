@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>clients registration</title>
+ <th:block th:include="direction/_header_direction"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Direction Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="direction/_menu_direction"></th:block>
+</div>
+
+   <br><br>   
+<div id="content">   
+    <div class="form-style-2">
+        <div class="form-style-2-heading">Clients registration</div>
+        <form th:action="@{/client/save}" method="post">
+        <label for="field1"><span>name of Client<span class="required">*</span></span><input type="text" class="input-field" name="name" value="" maxlength="40" required /></label>
+        <label for="field1"><span>Social reason <span class="required">*</span></span><input type="text" class="input-field" name="socialReason" value="" maxlength="50" required/></label>
+        <label for="field4"><span>Branch of activity</span>
+        <select name="branch" class="select-field">   
+          <option value="Domestic appliances">Domestic appliances</option>
+        <option value="Drink">Drink</option>
+         <option value="Food Industry">Food Industry</option>
+         <option value="Hygien and Sanitary"> Hygien and Sanitary</option>
+         <option value="Mobile Telephony"> Mobile Telephony</option>
+         <option value="Pharmacy"> Pharmacy </option>   
+            </select></label>
+        <label for="field2"><span>Address<span class="required">*</span></span><input type="text" class="input-field" name="address" value="" required/></label>
+        <label for="field2"><span>E-mail <span class="required">*</span></span><input type="email" class="input-field" name="email" value="" required/></label>
+        <label for="field2"><span>Telephone<span class="required">*</span></span><input type="tel" class="input-field" name="tel" value="" maxlength="14" required/></label>        
+        <label><span> </span><input type="submit" value="Submit" /></label>
+        
+<!--            <label for="field5"><span>Message <span class="required">*</span></span><textarea name="field5" class="textarea-field"></textarea></label>
+-->
+        </form>
+        </div>
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

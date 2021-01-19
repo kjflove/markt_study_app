@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>home supervision</title>
+<th:block th:include="supervision/_header_supervision"></th:block>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Supervision Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="supervision/_menu_supervision"></th:block>
+</div>
+
+   <br><br>   
+<div id="content" class="col-md-12">   
+
+ 
+	 <div class="row" > 
+      	
+       <div class="col-md-6">
+       	<div class="form-style-2-heading">Questioner Infos</div>
+        <label for="field1" class="col-md-12"><span>Questioner Id</span><input type="text" class="form-control" th:value="${deploy.questionner.questionnerId}" disabled /></label>
+        <label for="field1" class="col-md-12"><span>Questioner Name</span><input type="text" class="form-control" th:value="${deploy.questionner.firstName+' '+deploy.questionner.lastName}" disabled /></label>
+        <label for="field1" class="col-md-12"><span>Tel </span><input type="text" class="form-control"  th:value="${deploy.questionner.tel}" disabled/></label>
+        <label for="field4" class="col-md-12"><span>Level </span><input type="text" class="form-control" th:value="${deploy.questionner.level}" disabled/></label>
+       
+       </div>
+       <div class="col-md-6">  
+       	<div class="form-style-2-heading">Study Infos</div>
+        <label for="field2" class="col-md-12"><span>Study Id</span><input type="text" class="form-control"  th:value="${deploy.study.studyId}" disabled/></label>
+        <label for="field2" class="col-md-12"><span>Study Name</span><input type="text" class="form-control"  th:value="${deploy.study.studyName}" disabled/></label>        
+        <label for="field2" class="col-md-12"><span>Start Date</span><input type="text" class="form-control"  th:value="${#dates.format(deploy.study.startDate, 'dd/MM/yyyy')}" disabled/></label>
+        <label for="field2" class="col-md-12"><span>End Date</span><input type="text" class="form-control"  th:value="${#dates.format(deploy.study.endDate, 'dd/MM/yyyy')}" disabled/></label>        
+        
+       </div>
+       </div>
+       <div class="row">
+       <div class="col-md-6">  
+        <div class="form-style-2-heading">Notations</div>  
+        	 <table class="table" id="" >  
+				                <tbody>
+				                <tr>
+				                	<th>Mastering</th>
+				                    <td th:text="${deploy.mastering}"></td>
+				                </tr>
+				                <tr>
+				                    <th>Discipline</th>
+				                    <td th:text="${deploy.discipline}"></td>
+				                </tr>
+				                <tr>
+				                    <th>Team Work</th>  
+				                    <td th:text="${deploy.teamWork}"></td>
+				                </tr>
+				                <tr>
+				                    <th>Instruction</th>
+				                    <td th:text="${deploy.instruction}"></td>
+				                </tr>
+				                <tr>
+				                    <th>Responsability</th> 
+				                    <td th:text="${deploy.responsability}"></td>
+				                </tr>
+				                <tr>
+				                    <th > Note: </th>
+				                    <td><span th:text="${deploy.mastering+deploy.discipline+deploy.teamWork+deploy.instruction+deploy.responsability}"></span>/20</td>
+				                    
+				                </tr>
+				                </tbody>          
+				                
+				            </table> 
+        
+       </div>
+       <div class="col-md-6">
+          <div class="form-style-2-heading">Calculs</div>  
+        	 	 <table class="table" id="" >  
+				                <tbody>
+				                <tr>
+				                	<th>Total Question</th>
+				                    <td th:text="${deploy.totalQuestion}"></td>
+				                </tr>
+				                 <tr>
+				                    <th>&nbsp;</th>
+				                    <td>X</td>
+				                </tr>
+				                <tr>
+				                    <th>Price Unit</th>
+				                    <td th:text="${deploy.unitPrice}"></td>
+				                </tr>
+				                 <tr>
+				                    <th>&nbsp;</th>
+				                    <td>+</td>
+				                </tr>
+				                <tr>
+				                    <th>Flate Rate</th>  
+				                    <td th:text="${deploy.editing}"></td>
+				                </tr>
+				              
+				                </tbody>
+				               <tfoot>
+				                <tr>
+				                    <th>Total :</th>
+				                    <td> <span th:text="${(deploy.totalQuestion*deploy.unitPrice)+deploy.editing}"></span> XAF</td> 
+				                </tr>
+				                </tfoot>
+				                
+				            </table> 
+        </div>
+       </div>
+       <a th:href="@{|/supervision/deployment-pdf?id=${deploy.id}|}" class="btn btn-primary"><span>Download PDF</span></a>
+ 
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable({
+    	 searching:false,
+    	 bInfo : false,
+    	 lengthChange:false
+    });
+} );
+</script>
+</body>
+</html>

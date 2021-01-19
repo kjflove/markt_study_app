@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Questioner registration</title>
+ <th:block th:include="study_management/_header_study_management"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Studies management Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table> 
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="study_management/_menu_management"></th:block>
+</div>
+   <br><br>   
+<div id="content">   
+
+<div class="alert alert-close alert-success" th:if="${successFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove"><i class="fas fa-times"></i></a>
+                        <div class="bg-green alert-icon">
+                    <i class="fas fa-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${successFlash}"></h4>
+                        </div>
+       </div>
+       <div class="alert alert-close alert-danger" th:if="${errorFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove"><i class="fas fa-times"></i></a>
+                        <div class="bg-red alert-icon">
+                    <i class="fas fa-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${errorFlash}"></h4>
+                        </div>
+               </div>
+   
+        <div class="form-style-2">
+            <div class="form-style-2-heading">Questioner registration</div>
+            <form th:action="@{/questionner/save}" method="post">
+             <label for="field1"><span>ID_Number <span class="required">*</span></span><input type="text" class="input-field" name="questionnerId" value="" maxlength="8"  required/></label>
+            <label for="field1"><span>First name <span class="required">*</span></span><input type="text" class="input-field" name="firstName" value="" maxlength="40"  required/></label>
+            <label for="field1"><span>Last name <span class="required">*</span></span><input type="text" class="input-field" name="lastName" value="" maxlength="40"  required/></label>
+            <label for="field1"><span>Date of birth <span class="required">*</span></span><input type="date" class="input-field" name="birthdate" value="" required /></label>
+            <label for="field4"><span>Gender</span><select name="gender" class="select-field">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                </select></label>
+            <label for="field2"><span>Address<span class="required">*</span></span><input type="text" class="input-field" name="address" value="" required/></label>
+            <label for="field2"><span>Email <span class="required">*</span></span><input type="email" class="input-field" name="email" value="" required/></label>
+            <label for="field2"><span>Telephone number<span class="required">*</span></span><input type="tel" class="input-field" name="tel" value=""maxlength="14" required/></label>
+            <label for="field4"><span>Level of study</span><select name="level" class="select-field">
+                <option value="high school">high school</option>
+                <option value="bachelor">bachelor</option>
+                <option value="master 1">master 1</option>
+                <option value="master 2">master 2</option>
+                </select></label>
+            <label for="field4"><span>Study area</span><select name="area" class="select-field">
+                <option value="Biochemistry"> Biochemistry </option>
+                <option value="Biology"> Biology </option>
+                <option value="Chemistry"> Chemistry </option>
+                <option value="Communication"> Communication </option>
+                <option value="Economics Sciences"> Economics Sciences </option>
+                <option value="Geography"> Geography</option>
+                <option value="History"> History </option>
+                <option value="Human Ressource"> Human Ressource </option>
+                <option value="Hygiene and Security"> Hygiene and Security </option>
+                <option value="Informatik"> Informatik</option>
+                <option value="Letters"> Letters </option>
+                <option value="Marketing"> Marketing</option>
+                <option value="Mathematic"> Mathematic </option>
+                <option value="Physics"> Physics </option>
+                 <option value="Right"> Right</option>
+                 <option value="Social Sciences"> Social Sciences </option>
+                <option value="Technical Sciences"> Technical Sciences </option>    
+                    </select></label>
+            
+            <label><span> </span><input type="submit" value="Submit" /></label>
+            
+<!--            <label for="field5"><span>Message <span class="required">*</span></span><textarea name="field5" class="textarea-field"></textarea></label>
+-->
+            </form>
+            </div>
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

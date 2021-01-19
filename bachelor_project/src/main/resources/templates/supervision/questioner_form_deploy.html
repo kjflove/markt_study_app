@@ -1,0 +1,76 @@
+<!DOCTYPE html >
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>deploy questioner</title>
+<th:block th:include="supervision/_header_supervision"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Supervision Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+  <div id="menu" >
+ <th:block th:include="supervision/_menu_supervision"></th:block>
+</div>
+
+   <br><br>   
+<div id="content">   
+    <div class="form-style-2">
+        <div class="form-style-2-heading">questioner deployment</div>
+        <form th:action="@{/questionerDeploy/save}"  method="post">
+        <label for="field1"><span>questioner <span class="required">*</span></span> <select name="questionner" class="select-field">
+                <option th:each="row : ${questionner}" th:value="${row.id}" th:text="${row.questionnerId+' - '+row.firstName+' '+row.lastName}"></option>
+                </select> </label>
+        <label for="field2"><span>Study <span class="required">*</span></span> <select name="study" class="select-field">
+                <option  th:each="row : ${studies}" th:value="${row.id}" th:text="${row.studyId+' - '+row.studyName}"></option>
+        </select></label>
+        <label for="field3"><span>Type of intervation<span class="required">*</span></span>
+            <select name="type_intervation" class="select-field">
+                <option value="conduting surveys">conduting surveys</option>
+                <option value="data writing" >data writing</option>
+                <option value="Editing">Editing</option>
+                </select></label>
+        <label for="field1"><span>Unit price of questionnaire <span class="required">*</span></span><input type="number" class="input-field" name="unit_price" min="0" /></label>
+        <label for="field5"><span>Number of questionnaire<span class="required">*</span></span><input type="number" class="input-field" name="number_of_question" min="0" required/></label>
+        <label for="field6"><span>Flate-rate of Editing<span class="required">*</span></span><input type="number" class="input-field" name="editing" min="0" required/></label>
+        
+        <div class="form-style-2-heading">score of questioner</div>
+        
+        <label for="field9"><span>Mastery of questionnaire<span class="required">*</span></span><input type="number" class="input-field" name="mastery" min="0" max="4" required/></label>
+        <label for="field10"><span>Discipline<span class="required">*</span></span><input type="number" class="input-field" name="discipline" min="0" max="4" required/></label>
+        <label for="field11"><span>Team work<span class="required">*</span></span><input type="number" class="input-field" name="team_work" min="0" max="4" required/></label>
+        <label for="field12"><span>follow instructions<span class="required">*</span></span><input type="number" class="input-field" name="instruction" min="0" max="4" required/></label>
+        <label for="field13"><span>Responsability<span class="required">*</span></span><input type="number" class="input-field" name="responsability" min="0" max="4" required/></label>
+        <label for="field14"><span>Observaton <span class="required">*</span></span>
+        <textarea name="observation" class="textarea-field"  maxlength="50" required></textarea>
+        </label>
+       
+        
+        <label><span> </span><input type="submit" value="Submit" /></label>
+        
+<!--            <label for="field5"><span>Message <span class="required">*</span></span><textarea name="field5" class="textarea-field"></textarea></label>
+-->
+        </form>
+        </div>
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

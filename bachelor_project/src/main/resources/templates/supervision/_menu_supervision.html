@@ -1,0 +1,39 @@
+
+<ul id="menu-demo2" xmlns:th="http://www.thymeleaf.org" >
+	<li><a th:href="@{/supervision/home_supervision}">HOME</a></li>
+	<li><a th:href="@{#}">QUESTIONER</a>
+		<ul>
+            <li><a th:href="@{/supervision/questioner_form_deploy}">deploy</a></li>
+            <li><a th:href="@{/supervision/questioner_payslip}">payslip</a></li>
+			<!-- <li><a th:href="@{/supervision/questioner_view}">preview </a></li> -->
+            <li><a th:href="@{/supervision/questioner_view_list}">list all </a></li>
+		</ul>
+	</li>
+	<li><a th:href="@{#}">STUDY</a>
+		<ul>
+			<li><a th:href="@{/supervision/study_view_list}">preview</a></li>
+			<li><a th:href="@{/supervision/study_view_list}">list all </a></li>
+			
+		</ul>
+	</li>
+	<li><a th:href="@{#}">ANSWERING</a>
+		<ul>
+			<li><a th:href="@{/supervision/answering_form_deploy}">deploy </a></li>
+			<li><a th:href="@{/supervision/answering_view}">preview </a></li>
+			<li><a th:href="@{/supervision/answering_view_list}">list all </a></li>
+		</ul>
+	</li> 
+
+	 <li><a th:href="@{#}"></a>
+        <ul>
+                      
+        </ul>
+    </li>
+     <li > <form th:action="@{/logout}" method="post">
+		    <input type="submit" value="Logout" class="btn btn-primary" />
+			</form>
+        <ul>
+                      
+        </ul>
+    </li>
+</ul>

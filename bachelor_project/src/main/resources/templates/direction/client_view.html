@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>view client</title>
+ <th:block th:include="direction/_header_direction"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Direction Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="direction/_menu_direction"></th:block>
+</div>
+   <br><br>   
+<div id="content" class="col-md-12"> 
+ 
+    <div class="form-style-2 col-md-12"> 
+        <div class="form-style-2-heading">Clients registration Detail</div>
+      <div class="row"> 
+       <div class="col-md-6">
+        
+        <label for="field1"><span>name of Client</span><input type="text" class="input-field" name="name" th:value="${row.name}" disabled /></label>
+        <label for="field1"><span>Social reason </span><input type="text" class="input-field" name="socialReason" th:value="${row.socialReason}" disabled/></label>
+        <label for="field4"><span>Branch of activity</span><input type="text" class="input-field" th:value="${row.branch}" disabled/></label>
+        <label for="field2"><span>Address</span><input type="text" class="input-field" name="address" th:value="${row.address}" disabled/></label>
+        <label for="field2"><span>E-mail</span><input type="email" class="input-field" name="email" th:value="${row.email}" disabled/></label>
+        <label for="field2"><span>Telephone</span><input type="tel" class="input-field" name="tel" th:value="${row.tel}" disabled/></label>        
+       </div>
+       
+       <div class="col-md-6">    
+        <label for="field1"><span>Study Number's</span><input type="text" class="input-field" name="name" th:value="${studiesSize}" disabled /></label>        
+       
+       </div>
+       </div> 
+       </div>      
+  </div>
+
+
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>home supervision</title>
+<th:block th:include="supervision/_header_supervision"></th:block>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Supervision Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="supervision/_menu_supervision"></th:block>
+</div>
+
+   <br><br>   
+<div id="content" class="col-md-12">   
+
+	<div class="row">		  		
+	<div class="col-6" >
+    <h2>Payslip of questioner</h2><br /> 
+    </div> 
+    
+    <div class="col-6" >
+    <form th:action="@{/supervision/questioner_payslip}"  th:method="get">
+    <!--div class="input-group" >
+	<input type="text"  id="idStudy" class="form-control"  th:value="${idStudy}" placeholder="search" name="search">
+	<div class="input-group-append">
+	<button  class="btn btn-dark waves-effect waves-light">Ok</button>  
+	</div>
+	</div--> 
+	 <div class="row">
+	 <input class="text-search form-control col-4" required type="text" name="idQuestioner" th:value="${idQuestioner}" placeholder="ID Questioner.." maxlength="8"/>
+     <input class="text-search form-control col-4" required type="text" name="idStudy" th:value="${idStudy}" placeholder="ID study.." maxlength="8"/>
+     <input class="search-icon col-2" type="submit" value="OK" >
+     </div>    
+	</form>
+	</div>
+	
+	</div> 
+	<br />
+	 <table class="table" id="myTable" >
+	 							<thead>
+				                <tr>
+				                    <th>Study ID</th>
+				                    <th>Study Name</th>
+				                    <th>Questioner ID</th>
+				                     <th>Questioner Name</th>
+				                    <th></th> 
+				                </tr>
+				                </thead>  
+				                <tbody>
+				                <tr th:each="row : ${list}">
+				                    <td th:text="${row.study.studyId}"></td>
+				                    <td th:text="${row.study.studyName}"></td>
+				                    <td th:text="${row.questionner.questionnerId}"></td>
+				                     <td th:text="${row.questionner.firstName}"></td>
+				                    
+				                    <td>  
+				                       
+				                     	<a th:href="@{questioner_payslipview(id=${row.id})}" class="btn eBtn" id="eBtn">view</a> 
+				                    </td> 
+				                </tr>
+				                </tbody>
+				                
+				            </table> 
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable({
+    	 searching:false,
+    	 bInfo : false,
+    	 lengthChange:false
+    });
+} );
+</script>
+</body>
+</html>

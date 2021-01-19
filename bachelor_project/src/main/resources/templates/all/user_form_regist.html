@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>admin system</title>
+ <th:block th:include="/all/_header_admin"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Admin System </h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="/all/_menu_admin"></th:block>
+</div>
+
+   <br><br>    
+<div id="content">   
+    <div class="form-style-2">
+        <div class="form-style-2-heading">Users registration</div>
+        <form th:action="@{/user/save}" method="post">
+        <label for="field1"><span>Username<span class="required">*</span></span><input type="text" class="input-field" name="username" value="" required /></label>
+        <label for="field1"><span>Password <span class="required">*</span></span><input type="text" class="input-field" name="password" value="" required/></label>
+        <label for="field4"><span>Role</span>
+        <select name="roles" class="select-field">   
+         <option value="1">Direction</option>
+         <option value="2">Supervisor</option>
+         <option value="3">Management</option>
+         <option value="4">Admin</option>   
+            </select></label>
+      
+        <label><span> </span><input type="submit" value="Submit" /></label>
+       </form>
+        </div>
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

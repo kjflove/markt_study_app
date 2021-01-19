@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<ul id="menu-demo2">
+	<li><a th:href="@{/management/home_management}">HOME</a></li>
+	<li><a th:href="@{#}">QUESTIONER</a>
+		<ul>
+            <li><a th:href="@{/management/questioner_form_regist}">regist</a></li>
+            
+			<li><a th:href="@{/management/questioner_view_list}">preview </a></li>
+            <li><a th:href="@{/management/questioner_view_list}">list all </a></li>
+		</ul>
+	</li>
+	<li><a th:href="@{#}">STUDY</a>
+		<ul>
+			<li><a th:href="@{/management/study_view_list}">preview</a></li>
+			<li><a th:href="@{/management/study_view_list}">list all </a></li>
+            
+		</ul>
+	</li>
+	<li><a th:href="@{#}">ANSWERING</a>
+		<ul>
+			<li><a th:href="@{/management/answering_form_regist}">regist </a></li>
+			<li><a th:href="@{/management/answering_view_list}">preview </a></li>
+			<li><a th:href="@{/management/answering_view_list}">list all </a></li>
+		</ul>
+	</li>
+	<li><a th:href="@{#}">REPORTS</a>
+		<ul>
+		<li><a th:href="@{/management/study_report_upload}">upload</a></li>
+        <li><a th:href="@{/management/study_report_download}">download</a></li>
+			
+		</ul>
+	</li>
+	 <li><a th:href="@{#}"></a>
+        <ul>
+                      
+        </ul>
+    </li>
+     <li >   <form th:action="@{/logout}" method="post">
+		    <input type="submit" value="Logout" class="btn btn-primary" />
+			</form>
+        <ul>
+                      
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

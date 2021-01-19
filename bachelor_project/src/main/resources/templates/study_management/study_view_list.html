@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>all studies</title>
+ <th:block th:include="study_management/_header_study_management"></th:block>
+ <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->  
+<div id="header">
+<table>
+    <tr>
+        <td><img src="../images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Studies management Departement</h1></td>
+    </tr>  
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->  
+<div id="menu" >
+ <th:block th:include="study_management/_menu_management"></th:block>
+</div>
+   <br><br>   
+<div id="content" class="col-md-12">   
+	  
+    	 	 <div class="alert alert-close alert-success" th:if="${successFlash}">
+                        <a href="#" title="Close" class="alert-close-btn icon-remove">      <i class="fas fa-times"></i></a>
+                        <div class="bg-green alert-icon">
+                            <i class="glyph-icon icon-check"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 class="alert-title" th:text="${successFlash}"></h4>
+                        </div>
+               </div>
+             <div class="row">		  		
+	<div class="col-8" >
+    <h2>List of all Study</h2><br /> 
+    </div> 
+    
+    <div class="col-4" >
+    <form th:action="@{study_view_list}"  th:method="get">
+    <div class="input-group" >
+	<input type="text"  id="search" class="form-control" th:value="${search}" placeholder="search by study id" name="search" maxlength="8">
+	<div class="input-group-append">
+	<button  class="btn btn-dark waves-effect waves-light">Ok</button>
+	</div>
+	</div> 
+	</form>
+	</div>
+	
+	</div>
+    	  
+     	 <table class="table" id="myTable" >
+	 							<thead>
+				                <tr>
+				                    <th>ID</th>
+				                    <th>Name</th>
+				                    <th>Typ</th>
+				                    <th>Start Date</th>
+				                    <th>End Date</th>   
+				                    <th>Branch</th>
+				                    <th>Sample</th>
+				                    <th>Client</th>
+				                    <th></th> 
+				                    
+				                </tr>
+				                </thead>  
+				                <tbody>
+				                <tr th:each="row : ${list}">
+				                    <td th:text="${row.studyId}"></td>
+				                    <td th:text="${row.studyName}"></td>
+				                    <td th:text="${row.typ}"></td>
+				                    <td th:text="${#dates.format(row.startDate, 'dd/MM/yyyy')}"></td>
+				                    <td th:text="${#dates.format(row.endDate, 'dd/MM/yyyy')}"></td>
+				                    <td th:text="${row.branch}"></td>
+				                    <td th:text="${row.sample}"></td>
+				                    <td th:text="${row.clientId.name}"></td>
+				                    <td>  
+				                        
+				                     	<a th:href="@{study_view(id=${row.id})}" class="btn eBtn" id="eBtn">view</a> 
+				                     	<!--<a th:href="@{|/study/download-pdf?id=${row.id}|}"><span>Download PDF</span></a>
+				                        -->
+				                    </td> 
+				                    
+				                </tr>
+				                </tbody>
+				                
+				            </table> 
+
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable({
+    
+    	 searching:false,
+    	 bInfo : false,
+    	 lengthChange:false
+    });
+} );
+</script>
+</body>
+</html>

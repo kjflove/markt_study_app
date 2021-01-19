@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>view study state</title>
+ <th:block th:include="/_header_direction"></th:block>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- header !-->
+<div id="header">
+<table>
+    <tr>
+        <td><img src="images/logo.png"></td>
+        <td><h1><a href="#" >Business ITEC</a><br>Direction Departement</h1></td>
+    </tr>
+     <tr>
+         <td><h2></h2></td></table>
+</div></div>
+  <!-- menu -->
+<div id="menu" >
+ <th:block th:include="/_menu_direction"></th:block>
+</div>
+   <br><br>   
+<div id="content">   
+    <h2>view of studies states</h2><br />
+
+    <div class="topnav">
+        
+        
+        <a href="#">Enter the Id study  . </a>
+        <form method="POST" action="#" >
+        <input class="text-search" type="text" placeholder="Id study.."/>
+        <select class="text-search" type="text" >
+            <option>Food Industry</option>
+         <option> Hygien and Sanitary</option>
+        </select>
+        <input class="search-icon" type="submit" value="">
+        </form>
+      </div> 
+</div>
+
+<div id="footer">
+<a href="#">Designed by Jean Franklin KAMANI</a>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
